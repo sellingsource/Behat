@@ -343,6 +343,10 @@ class PrettyFormatter extends ProgressFormatter
             $event->getException()
         );
     }
+    
+    public function afterSubStep(StepEvent $event){
+        $this->afterStep($event);
+    }
 
     /**
      * Prints feature header.
