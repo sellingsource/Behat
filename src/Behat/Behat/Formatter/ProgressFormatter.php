@@ -57,7 +57,7 @@ class ProgressFormatter extends ConsoleFormatter
      */
     public static function getSubscribedEvents()
     {
-        $events = array('afterSuite', 'afterStep');
+        $events = array('afterSuite', 'afterStep', 'afterSubStep');
 
         return array_combine($events, $events);
     }

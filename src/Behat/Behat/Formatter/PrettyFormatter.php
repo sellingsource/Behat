@@ -120,7 +120,7 @@ class PrettyFormatter extends ProgressFormatter
         $events = array(
             'beforeSuite', 'afterSuite', 'beforeFeature', 'afterFeature', 'beforeScenario',
             'afterScenario', 'beforeBackground', 'afterBackground', 'beforeOutline', 'afterOutline',
-            'beforeOutlineExample', 'afterOutlineExample', 'afterStep'
+            'beforeOutlineExample', 'afterOutlineExample', 'afterStep', 'afterSubStep'
         );
 
         return array_combine($events, $events);

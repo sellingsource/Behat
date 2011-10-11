@@ -96,7 +96,7 @@ class JUnitFormatter extends ConsoleFormatter
     {
         $events = array(
             'beforeFeature', 'afterFeature', 'beforeScenario', 'afterScenario',
-            'beforeOutlineExample', 'afterOutlineExample', 'afterStep'
+            'beforeOutlineExample', 'afterOutlineExample', 'afterStep', 'afterSubStep'
         );
 
         return array_combine($events, $events);
