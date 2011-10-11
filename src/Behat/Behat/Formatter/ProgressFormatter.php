@@ -100,6 +100,10 @@ class ProgressFormatter extends ConsoleFormatter
             $event->getException()
         );
     }
+    
+    public function afterSubStep(StepEvent $event){
+        $this->afterStep($event);
+    }
 
     /**
      * Prints step.

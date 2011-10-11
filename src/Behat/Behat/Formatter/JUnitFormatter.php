@@ -194,6 +194,10 @@ class JUnitFormatter extends ConsoleFormatter
 
         ++$this->stepsCount;
     }
+    
+    public function afterSubStep(StepEvent $event){
+        $this->afterStep($event);
+    }
 
     /**
      * Prints testsuite header.
