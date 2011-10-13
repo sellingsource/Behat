@@ -345,7 +345,8 @@ class PrettyFormatter extends ProgressFormatter
     }
     
     public function afterSubStep(StepEvent $event){
-        $this->afterStep($event);
+        if($this->parameters->get('verbose'))
+            $this->afterStep($event);
     }
 
     /**

@@ -101,8 +101,15 @@ class ProgressFormatter extends ConsoleFormatter
         );
     }
     
+    /**
+     *
+     * @param   Behat\Behat\Event\StepEvent $event
+     *
+     * @uses    afterStep()
+     */
     public function afterSubStep(StepEvent $event){
-        $this->afterStep($event);
+        if($this->parameters->get('verbose'))
+            $this->afterStep($event);
     }
 
     /**

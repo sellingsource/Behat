@@ -196,7 +196,8 @@ class JUnitFormatter extends ConsoleFormatter
     }
     
     public function afterSubStep(StepEvent $event){
-        $this->afterStep($event);
+        if($this->parameters->get('verbose'))
+            $this->afterStep($event);
     }
 
     /**
