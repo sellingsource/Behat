@@ -96,7 +96,7 @@ class JUnitFormatter extends ConsoleFormatter
     {
         $events = array(
             'beforeFeature', 'afterFeature', 'beforeScenario', 'afterScenario',
-            'beforeOutlineExample', 'afterOutlineExample', 'afterStep'
+            'beforeOutlineExample', 'afterOutlineExample', 'afterStep', 'afterSubStep'
         );
 
         return array_combine($events, $events);
@@ -193,6 +193,11 @@ class JUnitFormatter extends ConsoleFormatter
         }
 
         ++$this->stepsCount;
+    }
+    
+    public function afterSubStep(StepEvent $event){
+        if($this->parameters->get('verbose'))
+            $this->afterStep($event);
     }
 
     /**

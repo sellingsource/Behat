@@ -181,11 +181,13 @@ class StepTester implements NodeVisitorInterface
         $returnValues = is_array($returnValue) ? $returnValue : array($returnValue);
         foreach ($returnValues as $value) {
             if ($value instanceof SubstepInterface) {
-                $substepEvent = $this->executeStep($value->getStepNode());
-
+                $substep = $value->getStepNode();
+                $this->dispatcher->dispatch('beforeSubStep', new StepEvent($substep, $this->context));
+                $substepEvent = $this->executeStep($substep);
                 if (StepEvent::PASSED !== $substepEvent->getResult()) {
                     throw $substepEvent->getException();
                 }
+                $this->dispatcher->dispatch('afterSubStep', $substepEvent);
             }
         }
     }

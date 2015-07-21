@@ -447,7 +447,7 @@ class HtmlFormatter extends PrettyFormatter
         parent::printSummary($logger);
         $this->writeln('</div>');
 
-        $this->writeln(<<<'HTML'
+        $this->writeln(<<<HTML
 <div class="switchers">
     <a href="javascript:void(0)" id="behat_show_all">[+] all</a>
     <a href="javascript:void(0)" id="behat_hide_all">[-] all</a>
@@ -519,7 +519,7 @@ HTML
             return file_get_contents($templatePath);
         }
 
-        return <<<'HTMLTPL'
+        return <<<HTMLTPL
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns ="http://www.w3.org/1999/xhtml">
 <head>

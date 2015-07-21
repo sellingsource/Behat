@@ -57,7 +57,7 @@ class ProgressFormatter extends ConsoleFormatter
      */
     public static function getSubscribedEvents()
     {
-        $events = array('afterSuite', 'afterStep');
+        $events = array('afterSuite', 'afterStep', 'afterSubStep');
 
         return array_combine($events, $events);
     }
@@ -99,6 +99,17 @@ class ProgressFormatter extends ConsoleFormatter
             $event->getSnippet(),
             $event->getException()
         );
+    }
+    
+    /**
+     *
+     * @param   Behat\Behat\Event\StepEvent $event
+     *
+     * @uses    afterStep()
+     */
+    public function afterSubStep(StepEvent $event){
+        if($this->parameters->get('verbose'))
+            $this->afterStep($event);
     }
 
     /**
